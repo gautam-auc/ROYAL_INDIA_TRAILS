@@ -14,7 +14,6 @@ export const AppLayout = () => {
       <Navbar />
       {showIndex.includes(location.pathname) ? <Home /> : <Outlet />}
       <Footer />
-
     </div>
   )
 }

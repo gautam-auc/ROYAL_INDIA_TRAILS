@@ -1,0 +1,30 @@
+.about-hero {
+    background: url('/travel-banner.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.about-hero .overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.feature-card i {
+    display: block;
+}
+
+.about-cta {
+    background: linear-gradient(90deg, #f57c00, #fbc02d);
+}
