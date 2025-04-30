@@ -40,7 +40,7 @@ const Booking = () => {
             <div className="hotel-list">
                 {filteredHotels.length > 0 ? (
                     filteredHotels.map((hotel) => (
-                        <div className="hotel-card" key={hotel.id}>
+                        <div className="hotel-card" key={hotel.id} >
                             <img src={hotel.image_url} alt={hotel.name} />
                             <div className="hotel-info">
                                 <h3>{hotel.name}</h3>

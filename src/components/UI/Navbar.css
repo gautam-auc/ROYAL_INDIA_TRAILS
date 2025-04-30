@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .custom-navbar {
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    background: linear-gradient(to right, rgba(34, 45, 34, 0.8), rgba(85, 107, 47, 0.8));
     height: 80px;
     display: flex;
     justify-content: center;

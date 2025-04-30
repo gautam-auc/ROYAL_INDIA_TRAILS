@@ -13,6 +13,11 @@ export const Navbar = () => {
             <div className="navbar-container">
                 {/* Logo */}
                 <NavLink to="/" className="navbar-logo" onClick={closeMobileMenu}>
+                    <img
+                        src='/travel-rit-photo.png'
+                        alt="Royal India Trails Logo"
+                        style={{ height: '40px', marginRight: '30px' }}
+                    />
                     Royal India Trails
                 </NavLink>
 

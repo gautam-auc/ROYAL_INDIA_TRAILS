@@ -12,12 +12,13 @@ const Home = () => {
   return (
     <>
       <div className="hero">
+        <div className="overlay"></div>
         <div className="hero-content">
-          <h1  data-aos="fade-down">Discover Incredible India</h1>
-          <p  data-aos="fade-left">Find your perfect destination and book your next adventure today.</p>
+          <h1 data-aos="fade-down">Discover Incredible India</h1>
+          <p data-aos="fade-left">Find your perfect destination and book your next adventure today.</p>
 
           {/* Search Box */}
-          <div className="search-container"  data-aos="fade-up">
+          <div className="search-container" data-aos="fade-up">
             <input type="text" placeholder="Search destinations, hotels, activities..." />
             <button type="button">Search</button>
           </div>
@@ -80,7 +81,7 @@ const Home = () => {
             </div>
 
             <div className="carousel-item">
-              <div className="card mx-auto p-4 border-0 shadow" style={{ maxWidth: '600px' }}>
+              <div className="card mx-auto p-4 border-0 shadow" style={{ maxWidth: '550px' }}>
                 <img src="/goa.jpg" className="card-img-top rounded" alt="Goa Beach Holidays" />
                 <div className="card-body">
                   <h3 className="text-primary">Goa Beach Holidays</h3>
@@ -91,8 +92,8 @@ const Home = () => {
             </div>
 
             <div className="carousel-item">
-              <div className="card mx-auto p-4 border-0 shadow" style={{ maxWidth: '600px' }}>
-                <img src="/kerala.jpg" className="card-img-top rounded" alt="Kerala Backwaters" />
+              <div className="card mx-auto p-4 border-0 shadow" style={{ maxWidth: '550px' }}>
+                <img src="/Kerala.jpg" className="card-img-top rounded" alt="Kerala Backwaters" />
                 <div className="card-body">
                   <h3 className="text-primary">Kerala Backwaters</h3>
                   <p>Alleppey - Munnar - Kochi</p>

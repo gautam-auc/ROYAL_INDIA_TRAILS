@@ -78,7 +78,7 @@ const TripPlanner = () => {
     // Fetch route data from OpenRouteService
     const fetchRoute = async () => {
         setLoading(true);
-        const apiKey = '5b3ce3597851110001cf6248aa023d6fccde40a282db299e4dcfb17e'; // API key from .env
+        const apiKey = import.meta.env.VITE_ORS_API_KEY; // API key from .env
         const origin = cityCoordinates[fromCity];
         const destination = cityCoordinates[toCity];
 

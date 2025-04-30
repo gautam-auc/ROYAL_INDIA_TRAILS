@@ -17,6 +17,17 @@
     opacity: 0.9;
 }
 
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
+    z-index: 0;
+}
+
 /* Hero Content */
 .hero-content {
     max-width: 800px;
@@ -26,15 +37,28 @@
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(111, 58, 2);
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: rgb(255, 135, 8);
+    text-shadow: 2px 2px 8px rgba(128, 101, 101, 0.389);
+    display: inline-block;
+    background: rgba(91, 77, 77, 0.175);
+    /* optional overlay behind text */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
     font-weight: 600;
-    color: rgb(215, 14, 98);
+    color: rgb(255, 0, 0);
+    box-shadow: 0 4px 10px rgba(36, 32, 32, 0.5);
+    text-shadow: 2px 2px 8px rgba(93, 70, 70, 0.389);
+    background: rgba(91, 77, 77, 0.175);
 }
 
 /* Search Box */
@@ -173,7 +197,12 @@ section.packages h2 {
 }
 
 .carousel-item .card {
-    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    background: #CAC531;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F3F9A7, #CAC531);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 16px;
 }
 
@@ -238,28 +267,32 @@ section.packages h2 {
     background: #fff;
     border-radius: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .testimonial:hover {
+}
+
+.testimonial:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  }
-  
-  .testimonial p {
+}
+
+.testimonial p {
     font-size: 1rem;
     color: #555;
-  }
-  
-  .newsletter-form input {
+}
+
+.newsletter {
+    background: linear-gradient(90deg, #f57c00, #fbc02d);
+}
+
+.newsletter-form input {
     border-radius: 8px;
     padding: 10px 15px;
     border: 1px solid #ddd;
-  }
-  
-  .newsletter-form button {
+}
+
+.newsletter-form button {
     border-radius: 8px;
-  }
-  
+}
+
 
 /* Footer */
 .footer {

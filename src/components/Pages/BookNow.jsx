@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // 🧭 Added useNavigate
+import { useParams, useNavigate } from "react-router"; // 🧭 Added useNavigate
 import './BookNow.css';
 
 // Mock hotel data for testing
@@ -33,7 +33,7 @@ export const BookNow = () => {
 
             <h1>Book Your Stay at {hotel.name}</h1>
 
-            <div className="hotel-details">
+            <div className="hotel-details" key={hotel.id}>
                 <img src={hotel.image_url} alt={hotel.name} />
                 <div className="hotel-info">
                     <h3>{hotel.name}</h3>
