@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, useLocation } from 'react-router'
 import { Navbar } from '../UI/Navbar'
-import Home from '../pages/home'
+import Home from '../pages/Home'
 import { Footer } from '../UI/Footer'
 
 
