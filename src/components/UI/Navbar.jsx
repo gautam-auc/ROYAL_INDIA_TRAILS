@@ -35,7 +35,7 @@ export const Navbar = () => {
                         <NavLink to="/destinations" className="nav-links" onClick={closeMobileMenu}>Destinations</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/booking" className="nav-links" onClick={closeMobileMenu}>Booking</NavLink>
+                        <NavLink to="/hotel-list" className="nav-links" onClick={closeMobileMenu}>Booking</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/about" className="nav-links" onClick={closeMobileMenu}>About</NavLink>

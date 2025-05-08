@@ -1,66 +1,74 @@
-import React, { useState } from 'react';
-import './Booking.css';
-import { NavLink, useNavigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate, useParams } from 'react-router';
+import './Booking.css'
 
-// Mock hotel data for testing
-import { mockHotels } from './mockHotels';
-
-const Booking = () => {
-    const [searchTerm, setSearchTerm] = useState("");  // To track the search term
-    const [filteredHotels, setFilteredHotels] = useState(mockHotels); // Initially, show all hotels
+export const Booking = () => {
     const navigate = useNavigate();
+    const { hotelId } = useParams();
+    const [hotel, setHotel] = useState(null);
+    const [formData, setFormData] = useState({
+        hotelId: '',
+        name: '',
+        email: '',
+        phone: '',
+        checkInDate: '',
+        checkOutDate: ''
+    });
 
-    // Handle the change in the search input field
-    const handleSearchChange = (e) => {
-        const term = e.target.value.toLowerCase();
-        setSearchTerm(term);
+    useEffect(() => {
+        if (hotelId) {
+            axios.get(`http://localhost:5000/api/hotels`)
+                .then(res => {
+                    const selectedHotel = res.data.find(h => h._id === hotelId);
+                    setHotel(selectedHotel);
+                    setFormData(prev => ({
+                        ...prev,
+                        hotelId: hotelId
+                    }));
+                })
+                .catch(err => console.error(err));
+        }
+    }, [hotelId]);
 
-        // Filter the hotels based on the search term
-        const filtered = mockHotels.filter((hotel) =>
-            hotel.address.toLowerCase().includes(term)
-        );
-        setFilteredHotels(filtered);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('http://localhost:5000/api/bookings', formData);
+            alert('Booking Successful!');
+        } catch (error) {
+            alert('Booking failed.');
+        }
+    };
+
+    if (!hotel) return <p>Loading hotel...</p>;
+
     return (
-        <div className="booking-container">
-            <h1>Book Your Dream Hotel in India</h1>
-
-            {/* Search input */}
-            <div className="search-container">
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    placeholder="Search for hotels by city or area"
-                />
-            </div>
-
-            {/* Display hotels based on the filtered data */}
-            <div className="hotel-list">
-                {filteredHotels.length > 0 ? (
-                    filteredHotels.map((hotel) => (
-                        <div className="hotel-card" key={hotel.id} >
-                            <img src={hotel.image_url} alt={hotel.name} />
-                            <div className="hotel-info">
-                                <h3>{hotel.name}</h3>
-                                <p>{hotel.address}</p>
-                                <span className="price">₹{hotel.price}</span>
-
-                                {/* Book Now Button */}
-                                <button className="book-now-btn" onClick={() => navigate(`/book-now/${hotel.id}`)}>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <p>No hotels found for your search criteria.</p>
-                )}
+        <div className='booking-container'>
+            <button className="btn btn-primary" onClick={() => navigate(-1)} style={{ textAlign: 'center' }}>← Back</button> {/* 👈 Back Button */}
+            <div className="booking-form-container">
+                <h2>Booking at {hotel.name}</h2>
+                <form onSubmit={handleSubmit} className="booking-form">
+                    {/* Form fields like before */}
+                    <label>Name:</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                    <label>Email:</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                    <label>Phone:</label>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+                    <label>Check-In Date:</label>
+                    <input type="date" name="checkInDate" value={formData.checkInDate} onChange={handleChange} required />
+                    <label>Check-Out Date:</label>
+                    <input type="date" name="checkOutDate" value={formData.checkOutDate} onChange={handleChange} required />
+                    <button type="submit">Confirm Booking</button>
+                </form>
             </div>
         </div>
+
     );
 };
-
-
-export default Booking;

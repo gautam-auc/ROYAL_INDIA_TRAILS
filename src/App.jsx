@@ -3,10 +3,10 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { AppLayout } from './components/UI/Applayout'
 import {About} from './components/Pages/About'
-import Booking from './components/Pages/Booking'
 import Contact from './components/Pages/Contact'
 import TripPlanner from './components/Pages/TripPlanner'
-import { BookNow } from './components/Pages/BookNow'
+import HotelList from './components/Pages/HotelList'
+import {Booking} from './components/Pages/Booking'
 
 
 
@@ -17,8 +17,8 @@ export const App = () => {
       element: <AppLayout />,
       children: [
         { path: "/about", element: <About /> },
-        { path: "/booking", element: <Booking/>},
-        { path: "/book-now/:id", element: <BookNow/> },
+        { path: "/hotel-list", element: <HotelList/>},
+        { path: "/booking/:hotelId", element: <Booking/> },
         { path: "/contact", element: <Contact /> },
         { path: "/destinations", element: <TripPlanner/> },
       ]
